@@ -1,8 +1,6 @@
-Search for PEP:
-
 <%= form_for @conn, "/pep/search", [multipart: true, method: "get"], fn f -> %>
   <div class="form-group">
-    <label>File</label>
+    <label>Name</label>
     <%= text_input f, :name, class: "form-control" %>
   </div>
 

@@ -16,6 +16,7 @@ defmodule ElexWeb.Router do
   scope "/", ElexWeb do
     pipe_through :browser
 
+    get "/", PepController, :index
 
     scope "/pep" do
       get "/", PepController, :index
