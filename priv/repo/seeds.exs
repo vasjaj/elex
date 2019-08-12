@@ -14,3 +14,7 @@ names =
 
     List.first(a)
   end)
+
+Enum.each(names, fn name -> 
+  Elex.Repo.insert!(%Elex.Person{name: name})
+end)
