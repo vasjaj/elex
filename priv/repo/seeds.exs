@@ -1,11 +1,16 @@
-# Script for populating the database. You can run it as:
-#
-#     mix run priv/repo/seeds.exs
-#
-# Inside the script, you can read and write to any of your
-# repositories directly:
-#
-#     Elex.Repo.insert!(%Elex.SomeSchema{})
-#
-# We recommend using the bang functions (`insert!`, `update!`
-# and so on) as they will fail if something goes wrong.
+{:ok, response} =
+  HTTPoison.get(
+    "https://www.cia.gov/library/publications/world-leaders-1/LG.html"
+  )
+
+html = response.body
+
+elements = Floki.find(html, ".cos_name")
+
+names =
+  Enum.map(elements, fn element -> 
+    {_, _, value}  = element
+    {_, _, a} = List.first(value)
+
+    List.first(a)
+  end)
