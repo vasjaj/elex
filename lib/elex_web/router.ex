@@ -16,7 +16,12 @@ defmodule ElexWeb.Router do
   scope "/", ElexWeb do
     pipe_through :browser
 
-    get "/", PageController, :index
+
+    scope "/pep" do
+      get "/", PepController, :index
+      post "/upload_list", PepController, :upload_list
+      get "/search", PepController, :search
+    end
   end
 
   # Other scopes may use custom stacks.

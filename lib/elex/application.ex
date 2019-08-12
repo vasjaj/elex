@@ -11,9 +11,10 @@ defmodule Elex.Application do
       # Start the Ecto repository
       Elex.Repo,
       # Start the endpoint when the application starts
-      ElexWeb.Endpoint
+      ElexWeb.Endpoint,
       # Starts a worker by calling: Elex.Worker.start_link(arg)
       # {Elex.Worker, arg},
+      Elex.ElasticsearchCluster
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html

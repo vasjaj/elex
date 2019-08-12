@@ -1,0 +1,22 @@
+<%= form_for @conn, "/pep/upload_list", [multipart: true], fn f -> %>
+  <div class="form-group">
+    <label>File</label>
+    <%= file_input f, :file, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= submit "Submit", class: "btn btn-primary" %>
+  </div>
+<% end %>
+
+
+<%= form_for @conn, "/pep/search", [multipart: true, method: "get"], fn f -> %>
+  <div class="form-group">
+    <label>File</label>
+    <%= text_input f, :name, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= submit "Submit", class: "btn btn-primary" %>
+  </div>
+<% end %>

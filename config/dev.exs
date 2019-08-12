@@ -68,8 +68,8 @@ config :phoenix, :plug_init_mode, :runtime
 
 # Configure your database
 config :elex, Elex.Repo,
-  username: "postgres",
-  password: "postgres",
-  database: "elex_dev",
+  username: "phoenix",
+  password: "phoenix_password",
+  database: "phoenix_db",
   hostname: "localhost",
   pool_size: 10
