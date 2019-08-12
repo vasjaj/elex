@@ -1,6 +1,5 @@
 defmodule ElexWeb.PepController do
   use ElexWeb, :controller
-  require IEx
   
   def index(conn, _params) do
     render(conn, "index.html")
@@ -16,6 +15,7 @@ defmodule ElexWeb.PepController do
         )
 
     names = Enum.map(results["hits"]["hits"], fn value -> value["_source"]["name"] end)
+    
     render(conn, "matches.html", matches: names)
   end
 end

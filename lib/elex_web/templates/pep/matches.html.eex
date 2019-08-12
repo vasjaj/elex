@@ -1,5 +1,6 @@
-
+Results:
 <%= for match <- assigns.matches do %>
-  <%= match %>
   </br>
+
+  <%= match %>
 <% end %>
