@@ -9,10 +9,27 @@ config :elex, ElexWeb.Endpoint,
 # Print only warnings and errors during test
 config :logger, level: :warn
 
+config :elex, Elex.ElasticsearchCluster,
+  url: "http://localhost:9200",
+  username: "username",
+  password: "password",
+  api: Elex.Mock,
+  json_library: Jason,
+  indexes: %{
+    people: %{
+      settings: "priv/elasticsearch/people.json",
+      store: Elex.ElasticsearchStore,
+      sources: [Elex.Person],
+      bulk_page_size: 5000,
+      bulk_wait_interval: 15_000 # 15 seconds
+    }
+  }
+
 # Configure your database
 config :elex, Elex.Repo,
-  username: "postgres",
-  password: "postgres",
-  database: "elex_test",
+  username: "phoenix",
+  password: "phoenix_password",
+  database: "phoenix_db",
   hostname: "localhost",
+  pool_size: 10,
   pool: Ecto.Adapters.SQL.Sandbox

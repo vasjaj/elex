@@ -20,7 +20,6 @@ defmodule ElexWeb.Router do
 
     scope "/pep" do
       get "/", PepController, :index
-      post "/upload_list", PepController, :upload_list
       get "/search", PepController, :search
     end
   end
